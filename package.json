@@ -1,0 +1,25 @@
+{
+  "name": "incrementallify",
+  "version": "0.1.0",
+  "description": "faster rebuilds for browserify",
+  "main": "./index.js",
+  "bin": {
+    "incrementallify": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "browserify",
+    "bundling",
+    "cache",
+    "incremental"
+  ],
+  "author": "Michael Röber",
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "latest",
+    "outpipe"   : "^1.1.1",
+    "through2"  : "^2.0.3"
+  }
+}
