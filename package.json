@@ -15,6 +15,13 @@
     "cache",
     "incremental"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moszeed/incrementallify.git"
+  },
+  "engines" : {
+    "node" : ">=7.6.0"
+  },
   "author": "Michael Röber",
   "license": "MIT",
   "dependencies": {
