@@ -1,13 +1,13 @@
 {
   "name": "incrementallify",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "faster rebuilds for browserify",
   "main": "./index.js",
   "bin": {
     "incrementallify": "./index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./tests/tests.js"
   },
   "keywords": [
     "browserify",
@@ -19,14 +19,18 @@
     "type": "git",
     "url": "https://github.com/moszeed/incrementallify.git"
   },
-  "engines" : {
-    "node" : ">=7.6.0"
+  "engines": {
+    "node": ">=7.6.0"
   },
   "author": "Michael Röber",
   "license": "MIT",
   "dependencies": {
     "browserify": "latest",
-    "outpipe"   : "^1.1.1",
-    "through2"  : "^2.0.3"
+    "outpipe": "^1.1.1",
+    "read-only-stream": "^2.0.0",
+    "through2": "^2.0.3"
+  },
+  "devDependencies": {
+    "tape": "latest"
   }
 }
