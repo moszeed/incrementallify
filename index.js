@@ -51,13 +51,29 @@
         const runCheckSum = createChecksum(runParams);
         const cacheFileFullPath = path.join(cacheFileFolder, runCheckSum);
 
+        if (cacheFileData.items[runCheckSum]) {
+            let stillValid = Object.keys(cacheFileData.items[runCheckSum]).every((originalFilePath) => {
+                let originalFilePathStat = JSON.stringify(fs.statSync(originalFilePath));
+                let originalFileCheckSum = createChecksum(originalFilePathStat);
+                return originalFileCheckSum === cacheFileData.items[runCheckSum][originalFilePath];
+            });
+
+            if (!stillValid) {
+                if (verbose) console.log(`[${new Date().toLocaleTimeString()}] bundling, sourcefile has changed since last run`);
+                if (fs.existsSync(cacheFileFullPath)) {
+                    fs.unlinkSync(cacheFileFullPath);
+                }
+            }
+        }
+
         browserify.on('file', function (filePath, id, parent) {
             if (!cacheFileData.items[runCheckSum]) {
                 cacheFileData.items[runCheckSum] = {};
             }
 
+            let fileCheckSum = JSON.stringify(fs.statSync(filePath));
             Object.assign(cacheFileData.items[runCheckSum], {
-                [path.normalize(filePath)]: createChecksum(filePath)
+                [path.normalize(filePath)]: createChecksum(fileCheckSum)
             });
         });
 
@@ -65,7 +81,7 @@
         browserify.bundle = function (cb) {
             if (fs.existsSync(cacheFileFullPath)) {
                 browserify.reset();
-                if (verbose) console.log(`[${new Date().toLocaleTimeString()}] use cache`);
+                if (verbose) console.log(`[${new Date().toLocaleTimeString()}] no bundling, use cache`);
                 const self = this;
                 const stream = fs.createReadStream(cacheFileFullPath);
                 const output = readonly(stream);

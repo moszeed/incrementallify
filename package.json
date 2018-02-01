@@ -1,6 +1,6 @@
 {
   "name": "incrementallify",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "faster rebuilds for browserify",
   "main": "./index.js",
   "bin": {
