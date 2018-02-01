@@ -1,3 +1,4 @@
 tests/stream_bundle.js
 /node_modules
 /.browserifyCache
+/tests/testBuilds
