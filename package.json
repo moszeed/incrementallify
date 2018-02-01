@@ -1,6 +1,6 @@
 {
   "name": "incrementallify",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "faster rebuilds for browserify",
   "main": "./index.js",
   "bin": {
@@ -25,14 +25,25 @@
   "author": "Michael Röber",
   "license": "MIT",
   "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
     "browserify": "latest",
+    "cloneable-readable": "^1.0.0",
+    "concat-stream": "^1.6.0",
     "outpipe": "^1.1.1",
+    "parallel-transform": "^1.1.0",
+    "pump": "^3.0.0",
     "read-only-stream": "^2.0.0",
+    "readable-stream-clone": "0.0.4",
+    "shell-quote": "^1.6.1",
     "through2": "^2.0.3",
-    "shell-quote": "^1.6.1"
+    "through2-concurrent": "^1.1.1",
+    "uglify-js": "^3.3.9"
   },
   "devDependencies": {
     "tape": "latest",
-    "rimraf": "latest"
+    "rimraf": "latest",
+    "common-shakeify": "latest"
   }
 }

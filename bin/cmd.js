@@ -2,7 +2,7 @@
 (async () => {
     'use strict';
 
-    const writer = require('through2')();
+    const through = require('through2');
     const outpipe = require('outpipe');
     const path = require('path');
     const incrementallify = require('../');
@@ -23,10 +23,9 @@
     }
 
     function bundleFile () {
+        const writer = through();
         const browserifyBundle = browserify.bundle();
-        browserify.pipeline.get('pack').once('readable', function () {
-            browserifyBundle.pipe(writer);
-        });
+        browserifyBundle.pipe(writer);
 
         writer.once('readable', function () {
             var outpipeStream = outpipe(outfile);
@@ -41,5 +40,4 @@
     }
 
     bundleFile();
-
 })();
