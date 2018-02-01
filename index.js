@@ -64,6 +64,7 @@
         const _bundle = browserify.bundle;
         browserify.bundle = function (cb) {
             if (fs.existsSync(cacheFileFullPath)) {
+                browserify.reset();
                 if (verbose) console.log(`[${new Date().toLocaleTimeString()}] use cache`);
                 const self = this;
                 const stream = fs.createReadStream(cacheFileFullPath);
