@@ -23,3 +23,7 @@ to get the incrementallify cli, or do:
 $ npm install --save incrementallify
 ```
 to get the libary instead
+
+##### Support
+
+[Buy me a Coffee](https://www.patreon.com/moszeed)

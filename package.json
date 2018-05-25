@@ -20,7 +20,7 @@
     "url": "https://github.com/moszeed/incrementallify.git"
   },
   "engines": {
-    "node": ">=9.0.0"
+    "node": ">=8.0.0"
   },
   "author": "Michael Röber",
   "license": "MIT",
